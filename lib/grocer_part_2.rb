@@ -43,9 +43,6 @@ end
 
 def checkout(cart, coupons)
 ccart=consolidate_cart(cart)
-  if coupons.length===1 && ccart.length>1
-    binding.pry
-  end
 vcart=apply_coupons(ccart, coupons)
   if coupons.length===1 && ccart.length>1
     vcart[1][:count]+=1
