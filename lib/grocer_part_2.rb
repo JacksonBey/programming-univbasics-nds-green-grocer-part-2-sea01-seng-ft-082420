@@ -44,9 +44,6 @@ end
 def checkout(cart, coupons)
 ccart=consolidate_cart(cart)
 vcart=apply_coupons(ccart, coupons)
-  if coupons.length===1 && ccart.length>1
-    binding.pry
-  end
 jcart=apply_clearance(vcart)
   if coupons.length===1 && ccart.length>1
     binding.pry
