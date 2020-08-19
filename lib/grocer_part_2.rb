@@ -51,5 +51,8 @@ end
   if price>100.0
     price=price-(price*0.1)
   end
+if price===40.0
+binding.pry
+end
 return price
 end
