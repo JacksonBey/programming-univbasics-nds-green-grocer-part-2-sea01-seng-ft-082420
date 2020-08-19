@@ -1,23 +1,22 @@
 require_relative './part_1_solution.rb'
 require 'pry'
 def apply_coupons(cart, coupons)
-ccart = consolidate_cart(cart)
 i=0
 if coupons===[]
-  ccart[0][:count]+=1
-  return ccart
+  cart[0][:count]+=1
+  return cart
 end
-ccart.each do |key|
+cart.each do |key|
   coupons.each do |ckey|
     coupitem={}
     if ckey[:item]===key[:item]
       if key[:count]>ckey[:num]
         key[:count]-=ckey[:num]
         coupitem.merge! :item => "#{key[:item]} W/COUPON",:price => ckey[:cost].to_f/ckey[:num],:clearance => key[:clearance],:count => ckey[:num]
-        ccart.push coupitem
+        cart.push coupitem
       else if key[:count]<=ckey[:num]
         coupitem.merge! :item => "#{key[:item]} W/COUPON",:price => ckey[:cost].to_f/ckey[:num],:clearance => key[:clearance],:count => ckey[:num]
-        ccart.push coupitem
+        cart.push coupitem
         key[:count]-=ckey[:num]
         if (key[:count]-ckey[:num])<0
           key[:count]=0
@@ -27,7 +26,7 @@ end
 end
 end
 end
-return ccart
+return cart
 end
 
 
