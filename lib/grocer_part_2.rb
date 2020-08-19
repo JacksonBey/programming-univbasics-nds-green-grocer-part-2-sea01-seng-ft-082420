@@ -45,10 +45,6 @@ def checkout(cart, coupons)
 ccart=consolidate_cart(cart)
 vcart=apply_coupons(ccart, coupons)
 jcart=apply_clearance(vcart)
-  if coupons.length===1 && ccart.length>1
-    binding.pry
-  end
-
 price=0.0
 jcart.each do |key|
   price+=key[:price]*key[:count].to_f
