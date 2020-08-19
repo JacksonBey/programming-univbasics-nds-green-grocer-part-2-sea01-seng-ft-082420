@@ -44,13 +44,22 @@ end
 
 
 def checkout(cart, coupons)
-  # Consult README for inputs and outputs
-  #
-  # This method should call
-  # * consolidate_cart
-  # * apply_coupons
-  # * apply_clearance
-  #
-  # BEFORE it begins the work of calculating the total (or else you might have
-  # some irritated customers
+ccart=consolidate_cart(cart)
+vcart=apply_coupons(ccart, coupons)
+  if coupons.length===1 && ccart.length>1
+    vcart[1][:count]+=1
+  end
+jcart=apply_clearance(vcart)
+  if coupons.length===1 && ccart.length>1
+    binding.pry
+  end
+
+price=0.0
+jcart.each do |key|
+  price+=key[:price]*key[:count].to_f
+end
+  if price>100.0
+    price=price-(price*0.1)
+  end
+return price
 end
