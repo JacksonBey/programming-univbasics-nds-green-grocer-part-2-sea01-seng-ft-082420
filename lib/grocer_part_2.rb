@@ -36,7 +36,7 @@ cart.each do |key|
     key[:price]=key[:price]-(key[:price]*(0.2))
   end
 end
-return ccart
+return cart
 end
 
 
