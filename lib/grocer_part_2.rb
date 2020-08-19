@@ -3,7 +3,6 @@ require 'pry'
 def apply_coupons(cart, coupons)
 i=0
 if coupons===[]
-  cart[0][:count]+=1
   return cart
 end
 cart.each do |key|
