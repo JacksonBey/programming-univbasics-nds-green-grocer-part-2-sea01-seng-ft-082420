@@ -35,11 +35,12 @@ def apply_clearance(cart)
 ccart = consolidate_cart(cart)
 ccart.each do |key|
   if key[:clearance]
-    key[:price]=key[:price]-(key[:price]/(1.2))
-    binding.pry
+    key[:price]=key[:price]-(key[:price]*(0.2))
   end
 end
+return ccart
 end
+
 
 
 def checkout(cart, coupons)
