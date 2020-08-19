@@ -32,8 +32,7 @@ end
 
 
 def apply_clearance(cart)
-ccart = consolidate_cart(cart)
-ccart.each do |key|
+cart.each do |key|
   if key[:clearance]
     key[:price]=key[:price]-(key[:price]*(0.2))
   end
